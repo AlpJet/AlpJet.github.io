@@ -45,6 +45,19 @@
             gap: 10px;
         }
 
+.logo-img {
+    height: 40px; /* Bu değer idealdir, istersen 35px de yapabilirsin */
+    width: auto;  /* Orantıyı bozmaması için otomatik genişlik */
+    margin-right: 10px; /* Metinle arasını açar */
+    vertical-align: middle; /* Metinle aynı hizada durmasını sağlar */
+    transition: transform 0.3s ease; /* Üzerine gelince tatlı bir efekt için */
+}
+
+/* Bonus: Fareyle üzerine gelince logo hafifçe büyüsün (Profesyonel dokunuş) */
+.logo-img:hover {
+    transform: scale(1.1);
+}
+        
         .logo span { color: var(--alp-turkuaz); }
 
         .nav-links {
