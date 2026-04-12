@@ -1,22 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>AlpJet Official</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpJet | Gökyüzünün Lideri</title>
     <style>
-        body { 
-            background-color: #f4f4f4; 
+        /* --- Temel Ayarlar (Windows 7 Mavi Tonları) --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
+            background-color: #a2d2ff; /* Açık Aero Mavisi */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        .header { background-color: #003366; color: white; padding: 50px; }
+
+        /* --- Animasyon: Gökyüzünde Kayan Bulutlar (Arka Plan) --- */
+        @keyframes moveClouds {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 0; }
+        }
+
+        body {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 1000 200"><circle cx="100" cy="50" r="40" fill="white" opacity="0.6"/><circle cx="160" cy="60" r="30" fill="white" opacity="0.6"/><circle cx="350" cy="80" r="50" fill="white" opacity="0.4"/><circle cx="500" cy="40" r="25" fill="white" opacity="0.7"/><circle cx="650" cy="90" r="60" fill="white" opacity="0.5"/><circle cx="800" cy="50" r="35" fill="white" opacity="0.6"/><circle cx="950" cy="70" r="45" fill="white" opacity="0.5"/></svg>');
+            background-repeat: repeat-x;
+            animation: moveClouds 60s linear infinite;
+        }
+
+        /* --- Aero Glass Efekti (Menü ve Kutular İçin) --- */
+        .aero-glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        }
+
+        /* --- Animasyon: Uçağın Kalkışı --- */
+        @keyframes takeOff {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(-10deg) translateX(100px); opacity: 0; }
+        }
+
+        /* --- Navigasyon Menüsü --- */
+        nav {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area img {
+            width: 50px;
+            height: auto;
+            border-radius: 50%;
+            /* Buraya senin logonun adını yazmalısın! */
+            /* content: url('logonun_adi.png'); */ 
+        }
+
+        .logo-area h1 {
+            color: #004080; /* Koyu Mavi */
+            margin: 0;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #004080;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #7fbbff;
+        }
+
+        /* --- Hero Bölümü (Ana Hoşgeldiniz Alanı) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: fadeInDown 1s forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+
+        .hero .plane-icon {
+            font-size: 4em;
+            position: absolute;
+            animation: takeOff 3s linear infinite;
+            opacity: 0;
+        }
+
+        /* --- İçerik Bölümleri --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h3 { color: #004080; border-bottom: 2px solid #7fbbff; padding-bottom: 10px; }
+
+        /* --- Basit Animasyon Kütüphanesi --- */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>AlpJet Havayolları</h1>
-        <p>Gökyüzündeki Yeni Adresiniz</p>
+
+    <div class="hero">
+        <div class="plane-icon">✈️</div>
+        <h2>AlpJet'e Hoş Geldiniz</h2>
+        <p>Havacılık tutkusunu, simülasyon dünyasını ve Windows 7'nin o efsanevi estetiğini bir araya getiren dijital platform.</p>
     </div>
-    <p>Site şu an yapım aşamasındadır.</p>
+
+    <nav class="aero-glass">
+        <div class="logo-area">
+            <img src="logo.png" alt="AlpJet"> 
+            <h1>AlpJet</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#hakkimizda">Hakkımızda</a>
+            <a href="#filo">Filomuz</a>
+            <a href="#projeler">Projeler</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="hakkimizda" class="section aero-glass">
+            <h3>Hakkımızda</h3>
+            <p>AlpJet, 11 yaşındaki bir havacılık sevdalısının hayaliyle başladı. Amacımız, en gerçekçi uçuş simülasyonlarını deneyimlemek ve kendi Roblox projelerimizi bu platform üzerinden dünyayla paylaşmaktır.</p>
+        </div>
+
+        <div id="filo" class="section aero-glass">
+            <h3>Filomuz</h3>
+            <p>Şu an için aktif filomuzda simülatör dünyasının en sevilen uçakları bulunuyor. Yakında kendi tasarımlarımız da burada yerini alacak!</p>
+            <ul>
+                <li>Cessna 172 (Eğitim Uçağı)</li>
+                <li>Boeing 737-800 (Yolcu Uçağı)</li>
+                <li>F-16 Fighting Falcon (Savaş Uçağı)</li>
+            </ul>
+        </div>
+
+        <div id="projeler" class="section aero-glass">
+            <h3>Aktif Projeler</h3>
+            <p>Roblox Studio üzerinde geliştirmekte olduğumuz "AlpJet Flight Academy" oyununu çok yakında buradan ziyaret edebilirsiniz.</p>
+        </div>
+    </div>
+
+    <script>
+        // Sayfa Kaydırıldığında Bölümlerin Belirmesi
+        window.addEventListener('scroll', function() {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                var sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+
+        // Sayfa Yüklendiğinde İlk Kontrol
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
 </body>
 </html>
