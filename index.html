@@ -3,216 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlpJet | Gökyüzünün Lideri</title>
+    <title>AlpJet Havayolları | Asalet Kanatlarınızda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* --- Temel Ayarlar (Windows 7 Mavi Tonları) --- */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #a2d2ff; /* Açık Aero Mavisi */
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+        :root {
+            --alp-turkuaz: #008B8B;
+            --alp-koyu: #1A252C;
+            --alp-gri: #F0F4F8;
+            --aero-glass: rgba(255, 255, 255, 0.85);
+            --aero-border: rgba(255, 255, 255, 0.5);
         }
 
-        /* --- Animasyon: Gökyüzünde Kayan Bulutlar (Arka Plan) --- */
-        @keyframes moveClouds {
-            from { background-position: 0 0; }
-            to { background-position: 1000px 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 1000 200"><circle cx="100" cy="50" r="40" fill="white" opacity="0.6"/><circle cx="160" cy="60" r="30" fill="white" opacity="0.6"/><circle cx="350" cy="80" r="50" fill="white" opacity="0.4"/><circle cx="500" cy="40" r="25" fill="white" opacity="0.7"/><circle cx="650" cy="90" r="60" fill="white" opacity="0.5"/><circle cx="800" cy="50" r="35" fill="white" opacity="0.6"/><circle cx="950" cy="70" r="45" fill="white" opacity="0.5"/></svg>');
-            background-repeat: repeat-x;
-            animation: moveClouds 60s linear infinite;
+            background-color: var(--alp-gri);
+            color: var(--alp-koyu);
         }
 
-        /* --- Aero Glass Efekti (Menü ve Kutular İçin) --- */
-        .aero-glass {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 10px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-        }
-
-        /* --- Animasyon: Uçağın Kalkışı --- */
-        @keyframes takeOff {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            20% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(-10deg) translateX(100px); opacity: 0; }
-        }
-
-        /* --- Navigasyon Menüsü --- */
-        nav {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            padding: 10px 20px;
+        /* Navigasyon Bar - Qantas & THY Tarzı İnce ve Şık */
+        header {
+            background-color: var(--alp-koyu);
+            color: white;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .logo-area {
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            color: white;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .logo-area img {
-            width: 50px;
-            height: auto;
-            border-radius: 50%;
-            /* Buraya senin logonun adını yazmalısın! */
-            /* content: url('logonun_adi.png'); */ 
+        .logo span {
+            color: var(--alp-turkuaz);
         }
 
-        .logo-area h1 {
-            color: #004080; /* Koyu Mavi */
-            margin: 0;
-            font-size: 1.5em;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            font-weight: 500;
+            font-size: 14px;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #004080;
-            margin-left: 20px;
-            font-weight: bold;
+        .nav-links li {
+            cursor: pointer;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #7fbbff;
+        .nav-links li:hover {
+            color: var(--alp-turkuaz);
         }
 
-        /* --- Hero Bölümü (Ana Hoşgeldiniz Alanı) --- */
+        .login-btn {
+            background-color: transparent;
+            border: 2px solid var(--alp-turkuaz);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: var(--alp-turkuaz);
+        }
+
+        /* Hero Bölümü - Devasa Görsel */
         .hero {
-            height: 100vh;
+            height: 90vh;
+            background: linear-gradient(to bottom, rgba(26,37,44,0.4), rgba(26,37,44,0.1)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-text {
             text-align: center;
-            color: #fff;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* Gelişmiş Arama Motoru (Lufthansa & SunExpress Tarzı) - Aero Glass Tasarım */
+        .booking-widget {
+            background: var(--aero-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--aero-border);
+            border-radius: 12px;
+            padding: 30px;
+            width: 85%;
+            max-width: 1200px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .widget-tabs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
+
+        .widget-tabs span {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--alp-koyu);
+            cursor: pointer;
+            padding-bottom: 10px;
             position: relative;
         }
 
-        .hero h2 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            opacity: 0;
-            animation: fadeInDown 1s forwards 0.5s;
+        .widget-tabs span.active {
+            color: var(--alp-turkuaz);
         }
 
-        .hero p {
-            font-size: 1.2em;
-            max-width: 600px;
-            opacity: 0;
-            animation: fadeIn 1s forwards 1s;
-        }
-
-        .hero .plane-icon {
-            font-size: 4em;
+        .widget-tabs span.active::after {
+            content: '';
             position: absolute;
-            animation: takeOff 3s linear infinite;
-            opacity: 0;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--alp-turkuaz);
         }
 
-        /* --- İçerik Bölümleri --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px 20px;
+        .search-grid {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1.5fr 1.5fr 1fr 1.5fr;
+            gap: 15px;
+            align-items: end;
         }
 
-        .section {
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--alp-koyu);
+            text-transform: uppercase;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+            color: var(--alp-koyu);
+            font-weight: 500;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--alp-turkuaz);
+            box-shadow: 0 0 0 2px rgba(0,139,139,0.2);
+        }
+
+        .btn-search {
+            background-color: var(--alp-turkuaz);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-search:hover {
+            background-color: #006666;
+        }
+
+        /* Kampanyalar / Popüler Rotalar Bölümü */
+        .promotions {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
             margin-bottom: 40px;
-            padding: 30px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
+            color: var(--alp-koyu);
         }
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        h3 { color: #004080; border-bottom: 2px solid #7fbbff; padding-bottom: 10px; }
+        .promo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
 
-        /* --- Basit Animasyon Kütüphanesi --- */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .promo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
 
+        .promo-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .promo-content {
+            padding: 20px;
+        }
+
+        .promo-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--alp-turkuaz);
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        /* Filo Vurgusu (Boeing & Airbus) */
+        .fleet-banner {
+            background-color: var(--alp-koyu);
+            color: white;
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fleet-info h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--alp-turkuaz);
+            margin-bottom: 15px;
+        }
+
+        .fleet-info p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <div class="plane-icon">✈️</div>
-        <h2>AlpJet'e Hoş Geldiniz</h2>
-        <p>Havacılık tutkusunu, simülasyon dünyasını ve Windows 7'nin o efsanevi estetiğini bir araya getiren dijital platform.</p>
-    </div>
+    <header>
+        <div class="logo">🐺 ALP<span>JET</span></div>
+        <ul class="nav-links">
+            <li>Uçuş Planla</li>
+            <li>Check-in / Bilet Yönetimi</li>
+            <li>Uçuş Durumu</li>
+            <li>Filomuz</li>
+        </ul>
+        <button class="login-btn">Giriş Yap</button>
+    </header>
 
-    <nav class="aero-glass">
-        <div class="logo-area">
-            <img src="logo.png" alt="AlpJet"> 
-            <h1>AlpJet</h1>
-        </div>
-        <div class="nav-links">
-            <a href="#hakkimizda">Hakkımızda</a>
-            <a href="#filo">Filomuz</a>
-            <a href="#projeler">Projeler</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div id="hakkimizda" class="section aero-glass">
-            <h3>Hakkımızda</h3>
-            <p>AlpJet, 11 yaşındaki bir havacılık sevdalısının hayaliyle başladı. Amacımız, en gerçekçi uçuş simülasyonlarını deneyimlemek ve kendi Roblox projelerimizi bu platform üzerinden dünyayla paylaşmaktır.</p>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Dünyayı Keşfetmeye Hazır Mısın?</h1>
+            <p>Bozkurt'un gücü ve Aero konforuyla yepyeni bir uçuş deneyimi.</p>
         </div>
 
-        <div id="filo" class="section aero-glass">
-            <h3>Filomuz</h3>
-            <p>Şu an için aktif filomuzda simülatör dünyasının en sevilen uçakları bulunuyor. Yakında kendi tasarımlarımız da burada yerini alacak!</p>
-            <ul>
-                <li>Cessna 172 (Eğitim Uçağı)</li>
-                <li>Boeing 737-800 (Yolcu Uçağı)</li>
-                <li>F-16 Fighting Falcon (Savaş Uçağı)</li>
-            </ul>
+        <div class="booking-widget">
+            <div class="widget-tabs">
+                <span class="active">✈️ Uçak Bileti</span>
+                <span>🏨 Otel</span>
+                <span>🚗 Araç Kiralama</span>
+            </div>
+            
+            <div class="search-grid">
+                <div class="input-group">
+                    <label>Nereden</label>
+                    <input type="text" value="Erzincan (ERC)">
+                </div>
+                <div class="input-group">
+                    <label>Nereye</label>
+                    <input type="text" value="Melun / Paris (ORY)">
+                </div>
+                <div class="input-group">
+                    <label>Gidiş Tarihi</label>
+                    <input type="date">
+                </div>
+                <div class="input-group">
+                    <label>Dönüş Tarihi</label>
+                    <input type="date">
+                </div>
+                <div class="input-group">
+                    <label>Yolcu</label>
+                    <select>
+                        <option>1 Yolcu</option>
+                        <option>2 Yolcu</option>
+                        <option>3+ Yolcu</option>
+                    </select>
+                </div>
+                <button class="btn-search">UÇUŞ ARA</button>
+            </div>
         </div>
+    </section>
 
-        <div id="projeler" class="section aero-glass">
-            <h3>Aktif Projeler</h3>
-            <p>Roblox Studio üzerinde geliştirmekte olduğumuz "AlpJet Flight Academy" oyununu çok yakında buradan ziyaret edebilirsiniz.</p>
+    <section class="promotions">
+        <h2 class="section-title">Hafta Sonu Kaçamakları</h2>
+        <div class="promo-grid">
+            <div class="promo-card">
+                <div class="promo-img" style="background-image: url('https://images.unsplash.com/photo-1522083115901-3e1b20ba0c64?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="promo-content">
+                    <h3>Erzincan ➔ İstanbul</h3>
+                    <p>737 MAX 8 Ayrıcalığıyla</p>
+                    <div class="price">799 ₺'den başlayan</div>
+                </div>
+            </div>
+            <div class="promo-card">
+                <div class="promo-img" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="promo-content">
+                    <h3>İstanbul ➔ Paris / Melun</h3>
+                    <p>A330neo Konforuyla</p>
+                    <div class="price">€89'dan başlayan</div>
+                </div>
+            </div>
+            <div class="promo-card">
+                <div class="promo-img" style="background-image: url('https://images.unsplash.com/photo-1542055998-1752b069d6bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="promo-content">
+                    <h3>Erzincan ➔ Londra</h3>
+                    <p>Aktarmasız Direkt Uçuş</p>
+                    <div class="price">€120'den başlayan</div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        // Sayfa Kaydırıldığında Bölümlerin Belirmesi
-        window.addEventListener('scroll', function() {
-            var sections = document.querySelectorAll('.section');
-            sections.forEach(function(section) {
-                var sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight - 100) {
-                    section.classList.add('visible');
-                }
-            });
-        });
-
-        // Sayfa Yüklendiğinde İlk Kontrol
-        window.dispatchEvent(new Event('scroll'));
-    </script>
+    <section class="fleet-banner">
+        <div class="fleet-info">
+            <h2>Gökyüzündeki En Modern Filo</h2>
+            <p>AlpJet ailesi olarak, yolcularımıza koltuk arkası ekranlarla donatılmış <strong>Boeing 737 MAX 8</strong> ve okyanus ötesi üstün konfor sunan <strong>Airbus A330neo</strong> uçaklarımızla hizmet veriyoruz. Aero şeffaflığını ve Bozkurt güvenini her uçuşta hissedeceksiniz.</p>
+            <button class="login-btn">Filoyu İncele</button>
+        </div>
+    </section>
 
 </body>
 </html>
