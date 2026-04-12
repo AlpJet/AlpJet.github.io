@@ -51,11 +51,27 @@
             text-decoration: none;
         }
 
-        .logo-img {
-            height: 45px;
-            width: auto;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Logo ve metin arasındaki boşluk */
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--white); /* Metin rengi */
+    text-transform: uppercase;
+    text-decoration: none; /* Link alt çizgisini kaldırır */
+}
+        
+        .logo img {
+    height: 45px; /* Logonun yüksekliğini ayarla */
+    width: auto; /* Genişliği orantılı koru */
+}
 
+        .logo span {
+    color: var(--primary-color); /* 'JET' kısmı turkuaz olsun */
+}
+  
         .logo-text {
             font-size: 26px;
             font-weight: 800;
