@@ -27,29 +27,40 @@
         }
 
         /* Navigasyon Bar - Qantas & THY Tarzı İnce ve Şık */
-        header {
-            background-color: var(--alp-koyu);
-            color: white;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+<header>
+    <div class="logo">
+        <img src="alpjet-logo.png" alt="AlpJet Mutlu Bozkurt Logosu">
+        ALP<span>JET</span>
+    </div>
+    <ul class="nav-links">
+        <li>Uçuş Planla</li>
+        <li>Bilet Yönetimi</li>
+        <li>Uçuş Durumu</li>
+        <li>Filomuz</li>
+    </ul>
+    <button class="login-btn">Giriş Yap</button>
+</header>
 
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 1.5px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+      /* CSS Dosyasındaki `.logo` kısmını bu kodla değiştir */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Logo ve metin arasındaki boşluk */
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: white; /* Navigasyon siyahsa beyaz metin */
+    text-transform: uppercase;
+}
+
+.logo img {
+    height: 45px; /* Logonun yüksekliğini ayarla */
+    width: auto; /* Genişliği orantılı koru */
+}
+
+.logo span {
+    color: var(--alp-turkuaz); /* 'JET' kısmı turkuaz olsun */
+}
 
         .logo span {
             color: var(--alp-turkuaz);
