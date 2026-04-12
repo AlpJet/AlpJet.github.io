@@ -3,176 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlpJet | Gökyüzünün Yeni Lideri</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>AlpJet Havayolları | Resmi Web Sitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --alp-turkuaz: #008B8B;
-            --alp-koyu: #1A252C;
-            --alp-gri: #F4F7F9;
-            --aero-blur: rgba(255, 255, 255, 0.8);
+            --primary-color: #008B8B; /* AlpJet Turkuazı */
+            --dark-blue: #1a2b3c;
+            --light-gray: #f4f7f9;
+            --white: #ffffff;
         }
 
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--alp-gri);
-            scroll-behavior: smooth;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--white);
+            color: var(--dark-blue);
         }
 
-        /* Navigasyon - THY Tarzı Şık */
-        nav {
-            background-color: var(--alp-koyu);
-            padding: 15px 5%;
+        /* Üst Bilgi Çubuğu */
+        .top-bar {
+            background: var(--dark-blue);
+            color: white;
+            padding: 8px 10%;
+            font-size: 12px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        /* Navigasyon - THY & Emirates Tarzı */
+        header {
+            background: var(--white);
+            padding: 20px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 90%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .logo {
-            color: white;
-            font-size: 26px;
-            font-weight: 900;
-            text-decoration: none;
+        .logo-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-decoration: none;
         }
 
-.logo-img {
-    height: 40px; /* Bu değer idealdir, istersen 35px de yapabilirsin */
-    width: auto;  /* Orantıyı bozmaması için otomatik genişlik */
-    margin-right: 10px; /* Metinle arasını açar */
-    vertical-align: middle; /* Metinle aynı hizada durmasını sağlar */
-    transition: transform 0.3s ease; /* Üzerine gelince tatlı bir efekt için */
-}
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
 
-/* Bonus: Fareyle üzerine gelince logo hafifçe büyüsün (Profesyonel dokunuş) */
-.logo-img:hover {
-    transform: scale(1.1);
-}
-        
-        .logo span { color: var(--alp-turkuaz); }
+        .logo-text {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            letter-spacing: -1px;
+        }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            color: white;
-            font-size: 14px;
-            font-weight: 700;
+        .logo-text span { color: var(--primary-color); }
+
+        nav ul {
             list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            font-weight: 600;
+            font-size: 14px;
         }
 
-        /* Hero Alanı - Devasa Başlangıç */
+        nav ul li { cursor: pointer; transition: 0.3s; }
+        nav ul li:hover { color: var(--primary-color); }
+
+        /* Ana Görsel */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1920&q=80');
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            padding: 0 10%;
+        }
+
+        .hero-content h1 {
             color: white;
-            text-align: center;
+            font-size: 45px;
+            font-weight: 800;
+            max-width: 600px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            text-shadow: 0 5px 20px rgba(0,0,0,0.5);
-        }
-
-        /* Arama Paneli - Aero Glass Efekti */
-        .booking-box {
-            background: var(--aero-blur);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 15px;
+        /* Bilet Arama Motoru - Qatar & Lufthansa Tarzı */
+        .search-container {
+            background: var(--white);
             width: 80%;
-            max-width: 1100px;
-            margin-top: -80px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.4);
+            margin: -60px auto 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             position: relative;
             z-index: 10;
+        }
+
+        .search-tabs {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .search-tabs span {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .grid-inputs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) 0.5fr;
+            gap: 15px;
         }
 
         .input-group label {
             display: block;
             font-size: 11px;
-            font-weight: 900;
-            color: var(--alp-koyu);
+            font-weight: 700;
             margin-bottom: 5px;
-            text-transform: uppercase;
+            color: #777;
         }
 
         .input-group input {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-weight: 700;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
         }
 
         .search-btn {
-            background-color: var(--alp-turkuaz);
+            background: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 5px;
-            font-weight: 900;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 700;
             cursor: pointer;
+            transition: 0.3s;
+            align-self: flex-end;
+            height: 45px;
+        }
+
+        .search-btn:hover { background: #006666; }
+
+        /* Filo Tanıtımı */
+        .fleet-info {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .fleet-info h2 { font-size: 32px; margin-bottom: 40px; }
+
+        .fleet-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
             transition: 0.3s;
         }
 
-        .search-btn:hover { background-color: #006666; transform: scale(1.02); }
+        .card:hover { transform: translateY(-10px); background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+        .card h3 { color: var(--primary-color); margin-bottom: 10px; }
+        .card p { font-size: 14px; color: #555; line-height: 1.6; }
 
     </style>
 </head>
 <body>
 
-    <nav>
-     <img src="alpjet-logo.png" alt="🐺 AlpJet Logo" class="logo-img">
-        <ul class="nav-links">
-            <li>UÇUŞ PLANLA</li>
-            <li>FİLOMUZ</li>
-            <li>HAKKIMIZDA</li>
-        </ul>
-    </nav>
-
-    <div class="hero">
-        <h1>ASALET KANATLARINIZDA</h1>
-        <p>Bozkurt Gücüyle Dünyayı Keşfedin</p>
+    <div class="top-bar">
+        <span>Yardım</span>
+        <span>TR | TRY</span>
+        <span>Giriş Yap / Üye Ol</span>
     </div>
 
-    <center>
-        <div class="booking-box">
+    <header>
+        <a href="#" class="logo-box">
+            <img src="logo.png" alt="🐺" class="logo-img" onerror="this.style.display='none'">
+            <div class="logo-text">ALP<span>JET</span></div>
+        </a>
+        <nav>
+            <ul>
+                <li>PLANLA & UÇ</li>
+                <li>SEYAHAT DENEYİMİ</li>
+                <li>FİLOMUZ</li>
+                <li>ALPJET MILES</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Asalet ve Konforla <br>Dünyayı Keşfedin</h1>
+        </div>
+    </section>
+
+    <div class="search-container">
+        <div class="search-tabs">
+            <span>Uçuş Ara</span>
+            <span style="color:#ccc">Otel Rezervasyonu</span>
+            <span style="color:#ccc">Araç Kiralama</span>
+        </div>
+        <div class="grid-inputs">
             <div class="input-group">
-                <label>Nereden</label>
+                <label>NEREDEN</label>
                 <input type="text" value="Erzincan (ERC)">
             </div>
             <div class="input-group">
-                <label>Nereye</label>
-                <input type="text" value="Melun (ORY)">
+                <label>NEREYE</label>
+                <input type="text" placeholder="Şehir veya Havalimanı">
             </div>
             <div class="input-group">
-                <label>Tarih</label>
+                <label>TARİH</label>
                 <input type="date">
             </div>
-            <button class="search-btn">UÇUŞ ARA ✈️</button>
+            <div class="input-group">
+                <label>YOLCU</label>
+                <input type="text" value="1 Yetişkin">
+            </div>
+            <button class="search-btn">ARA</button>
         </div>
-    </center>
+    </div>
+
+    <section class="fleet-info">
+        <h2>Modern Filomuzla Tanışın</h2>
+        <div class="fleet-cards">
+            <div class="card">
+                <h3>Boeing 737 MAX 8</h3>
+                <p>Kısa ve orta menzilde yüksek verimlilik ve koltuk arkası eğlence sistemleri.</p>
+            </div>
+            <div class="card">
+                <h3>Airbus A330neo</h3>
+                <p>Geniş gövde konforuyla kıtalararası sessiz ve huzurlu yolculuklar.</p>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
