@@ -1,51 +1,132 @@
-<a href="#" class="logo">
-
-    <img src="logo.png" alt="AlpJet Logo">
-
-    ALP<span>JET</span>
-
-</a>
-
-html {
-    scroll-behavior: smooth;
-}
-
-<section id="alpjet-miles" style="padding: 80px 10%; background: linear-gradient(135deg, #004d4d 0%, #002d2d 100%); color: white; position: relative; overflow: hidden;">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpJet Miles | Sadakat Programı</title>
     
-    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+    <link rel="icon" type="image/png" href="alpjet-v1.png">
+    <link rel="apple-touch-icon" href="alpjet-v1.png">
 
-    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
-        
-        <div style="flex: 1; min-width: 300px;">
-            <h2 style="font-size: 32px; margin-bottom: 20px; color: #00d2d2;">AlpJet Miles ile Tanışın</h2>
-            <p style="font-size: 18px; line-height: 1.6; margin-bottom: 25px;">
-                Gökyüzünün en avantajlı dünyasına hoş geldiniz. Her uçuşunuzda mil kazanın, kazandığınız millerle ödül biletler alın veya uçuş sınıfınızı yükseltin.
-            </p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                <li style="margin-bottom: 10px;">✨ <strong>Özel Salon Erişimi:</strong> Lounge alanlarında konforun tadını çıkarın.</li>
-                <li style="margin-bottom: 10px;">✈️ <strong>Hızlı Geçiş:</strong> Havalimanında bekleme sürenizi en aza indirin.</li>
-                <li style="margin-bottom: 10px;">🛡️ <strong>Ekstra Bagaj:</strong> Millerinizle daha fazla yük taşıyın.</li>
-            </ul>
-            <button style="padding: 15px 35px; background: #00d2d2; border: none; border-radius: 50px; color: #002d2d; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0, 210, 210, 0.3);">
-                Şimdi Katılın
-            </button>
-        </div>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #008B8B;
+            --dark-blue: #1a2b3c;
+            --white: #ffffff;
+        }
 
-        <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-            <div style="width: 350px; height: 200px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 25px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <span style="font-weight: bold; letter-spacing: 2px;">ALPJET <span style="color: #00d2d2;">MILES</span></span>
-                    <img src="favicon.png" style="height: 30px; opacity: 0.8;">
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #f4f7f9 0%, #e0e5ec 100%);
+            color: var(--dark-blue);
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--white);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--dark-blue);
+        }
+
+        .logo-img { height: 40px; }
+        .logo-text { font-size: 24px; font-weight: 800; }
+        .logo-text span { color: var(--primary-color); }
+
+        .miles-hero {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .miles-card-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .miles-card {
+            width: 400px;
+            height: 230px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            position: relative;
+            color: var(--dark-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .card-type { font-weight: bold; color: var(--primary-color); letter-spacing: 2px; }
+        .card-number { font-size: 22px; letter-spacing: 4px; margin-top: 20px; font-weight: bold; }
+        .card-holder { font-size: 14px; opacity: 0.8; text-transform: uppercase; }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: #006666; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-box">
+            <img src="favicon.png" alt="🐺" class="logo-img">
+            <div class="logo-text">ALP<span>JET</span></div>
+        </a>
+        <nav>
+            <a href="index.html" style="text-decoration:none; color:var(--primary-color); font-weight:bold;">← Ana Sayfaya Dön</a>
+        </nav>
+    </header>
+
+    <section class="miles-hero">
+        <h1 style="font-size: 36px;">AlpJet Miles Dünyasına Hoş Geldiniz</h1>
+        <p style="font-size: 18px; color: #555;">Gökyüzünde asalet, yeryüzünde konfor.</p>
+
+        <div class="miles-card-container">
+            <div class="miles-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="card-type">PLATINUM MILES</span>
+                    <img src="alpjet-v1.png" style="height: 40px;">
                 </div>
-                <div style="margin-top: 40px;">
-                    <div style="font-size: 12px; opacity: 0.7; margin-bottom: 5px;">ÜYE NUMARASI</div>
-                    <div style="font-size: 18px; letter-spacing: 3px;">AJ 1923 2026 04</div>
-                </div>
-                <div style="margin-top: 20px; text-align: right;">
-                    <div style="font-size: 14px; font-weight: bold; color: #00d2d2;">PLATINUM MEMBER</div>
+                <div class="card-number">AJ 1923 2026 04</div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                        <div style="font-size: 10px; opacity: 0.6; margin-bottom: 2px;">ÜYE ADI</div>
+                        <div class="card-holder">SAYIN ALPJET YOLCUSU</div>
+                    </div>
+                    <div style="font-size: 10px; opacity: 0.6;">SON GEÇERLİLİK: 12/28</div>
                 </div>
             </div>
         </div>
 
-    </div>
-</section>
+        <br>
+        <a href="index.html" class="back-btn">Uçuş Planla</a>
+    </section>
+
+</body>
+</html>
