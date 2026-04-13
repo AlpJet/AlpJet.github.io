@@ -1,0 +1,51 @@
+<a href="#" class="logo">
+
+    <img src="logo.png" alt="AlpJet Logo">
+
+    ALP<span>JET</span>
+
+</a>
+
+html {
+    scroll-behavior: smooth;
+}
+
+<section id="alpjet-miles" style="padding: 80px 10%; background: linear-gradient(135deg, #004d4d 0%, #002d2d 100%); color: white; position: relative; overflow: hidden;">
+    
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+        
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="font-size: 32px; margin-bottom: 20px; color: #00d2d2;">AlpJet Miles ile Tanışın</h2>
+            <p style="font-size: 18px; line-height: 1.6; margin-bottom: 25px;">
+                Gökyüzünün en avantajlı dünyasına hoş geldiniz. Her uçuşunuzda mil kazanın, kazandığınız millerle ödül biletler alın veya uçuş sınıfınızı yükseltin.
+            </p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+                <li style="margin-bottom: 10px;">✨ <strong>Özel Salon Erişimi:</strong> Lounge alanlarında konforun tadını çıkarın.</li>
+                <li style="margin-bottom: 10px;">✈️ <strong>Hızlı Geçiş:</strong> Havalimanında bekleme sürenizi en aza indirin.</li>
+                <li style="margin-bottom: 10px;">🛡️ <strong>Ekstra Bagaj:</strong> Millerinizle daha fazla yük taşıyın.</li>
+            </ul>
+            <button style="padding: 15px 35px; background: #00d2d2; border: none; border-radius: 50px; color: #002d2d; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0, 210, 210, 0.3);">
+                Şimdi Katılın
+            </button>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+            <div style="width: 350px; height: 200px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 25px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <span style="font-weight: bold; letter-spacing: 2px;">ALPJET <span style="color: #00d2d2;">MILES</span></span>
+                    <img src="favicon.png" style="height: 30px; opacity: 0.8;">
+                </div>
+                <div style="margin-top: 40px;">
+                    <div style="font-size: 12px; opacity: 0.7; margin-bottom: 5px;">ÜYE NUMARASI</div>
+                    <div style="font-size: 18px; letter-spacing: 3px;">AJ 1923 2026 04</div>
+                </div>
+                <div style="margin-top: 20px; text-align: right;">
+                    <div style="font-size: 14px; font-weight: bold; color: #00d2d2;">PLATINUM MEMBER</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
