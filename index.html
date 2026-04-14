@@ -6,8 +6,7 @@
     <title>AlpJet Havayolları | Gökyüzündeki Asalet</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-<link rel="shortcut icon" type="image/png" href="favicon.png">>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -19,7 +18,6 @@
 
         body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #f4f7f9; }
 
-        /* Navigasyon */
         header {
             background: white;
             padding: 15px 10%;
@@ -39,9 +37,8 @@
         nav ul li a { text-decoration: none; color: inherit; font-weight: 600; transition: 0.3s; }
         nav ul li a:hover { color: var(--primary-color); }
 
-        /* Uçuş Arama Paneli (Hero) */
         .hero {
-            height: 500px;
+            height: 450px;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1436491865332-7a61a109c053?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -53,21 +50,6 @@
             text-align: center;
         }
 
-        .search-panel {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            color: var(--dark-blue);
-        }
-
-        .search-panel input { padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-        .btn-search { background: var(--primary-color); color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-
-        /* MyTechnic Bakım Bilgisi (Küçültülmüş ve Şık) */
         .tech-footer {
             background: #2c3e50;
             color: white;
@@ -79,20 +61,11 @@
             border-top: 3px solid var(--warning-yellow);
         }
 
-        /* Filo Kartları */
         .fleet { padding: 50px 10%; text-align: center; }
         .fleet-grid { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
         .card { 
             background: white; padding: 20px; border-radius: 10px; width: 250px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 5px solid var(--primary-color);
-            position: relative; overflow: hidden;
-        }
-        
-        .card::after {
-            content: "TECHNIC OK";
-            position: absolute; top: 10px; right: -20px;
-            background: var(--warning-yellow); color: black;
-            font-size: 8px; font-weight: bold; padding: 2px 20px; transform: rotate(45deg);
         }
     </style>
 </head>
@@ -105,8 +78,7 @@
         </a>
         <nav>
             <ul>
-                <li><a href="#">Bilet Al</a></li>
-                <li><a href="#">Check-in</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="AlpJet_Miles.html">Miles&Lines</a></li>
             </ul>
         </nav>
@@ -114,32 +86,19 @@
 
     <section class="hero">
         <h1 style="font-size: 40px; margin: 0;">Hayallerinizin Ötesine Uçun</h1>
-        <p>AlpJet ile konforlu ve güvenli yolculuklar sizi bekliyor.</p>
-        
-        <div class="search-panel">
-            <input type="text" placeholder="Nereden?">
-            <input type="text" placeholder="Nereye?">
-            <input type="date">
-            <button class="btn-search">Uçuş Ara</button>
-        </div>
+        <p>AlpJet Havayolları ile güvenli yolculuklar.</p>
     </section>
 
     <div class="tech-footer">
         <span>🔧</span>
-        <strong>MyTechnic Bilgilendirmesi:</strong> Filomuzdaki tüm hava araçları periyodik güvenlik kontrolünden geçmiştir.
+        <strong>MyTechnic Bilgilendirmesi:</strong> Filomuz periyodik bakımdan geçmiştir.
     </div>
 
     <section class="fleet">
-        <h2>Genç ve Modern Filomuz</h2>
+        <h2>Filomuz</h2>
         <div class="fleet-grid">
-            <div class="card">
-                <h3>Boeing 737 MAX</h3>
-                <p>Koltuk: 189 | Menzil: 6.570 km</p>
-            </div>
-            <div class="card">
-                <h3>Airbus A321neo</h3>
-                <p>Koltuk: 206 | Menzil: 7.400 km</p>
-            </div>
+            <div class="card"><h3>Boeing 737</h3></div>
+            <div class="card"><h3>Airbus A321</h3></div>
         </div>
     </section>
 
